@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>IFT3911 - Devoir 1 - Système de Réservation</title>
+<style>
+body { font-family: Arial, sans-serif; margin: 40px; }
+h1, h2, h3 { color: #003366; }
+table { border-collapse: collapse; width: 100%; margin-top: 15px; }
+th, td { border: 1px solid black; padding: 8px; text-align: center; }
+img { max-width: 100%; margin-top: 15px; }
+.section { margin-top: 50px; }
+
+</style>
+</head>
+
+<body>
+
+<h1>IFT3911 - Hiver 2026</h1>
+<h2>Devoir  1</h2>
+<h2>Système de Réservation de Voyages</h2>
+
+<hr>
+
+<h2>Équipe Tango </h2>
+
+<ul>
+<li><strong>Dabo Fahîma :</strong> tunwend-raabo.fahima.c.dabo@umontreal.ca | Matricule : 6362 | Temps investi : 51.5 heures </li><br>
+<li><strong>Jean Paul Marc Olivier  :</strong>  marc.olivier.jean.paul@umontreal.ca | Matricule : 1763 | Temps investi : 50.5 heures</li><br>
+<li><strong>Guinguiere Reine :</strong> wendkuni.reine.rosine.guinguiere@umontreal.ca | Matricule : 1523 | Temps investi : 50.7 heures</li><br>
+<li><strong>RahmouniAbdelghafour :</strong> abdel.ghafour.rahmouni@umontreal.ca | Matricule : 6224 | Temps investi : 50.4 heures</li>
+</ul>
+
+<hr>
+
+<div class="sectionHypothèses">
+<h2>1. Hypothèses</h2>
+
+<p>
+Nous  avions comme hypothèse pour la réalisation de ce devoir les suivantes :
+</p>
+
+<ul></ul>
+<li> Chaque voyage a une heure de départ et d'arrivée. en plus les leux de départ et d,arrivée doivent etre de même type</li>
+<li> Un lieu de transport peut contenir plusieurs compagnies </li>
+<li>Une compagnie peut se situer dans plusieurs lieux de transport</li>
+<li>La consultation retourne uniquement les sieges libres</li>
+<li>les méthodes modifier prennent tous les parametres ( villes , pays) et le systeme traite les chaises vides </li>
+<li>On a aussi assumé que tous les types de voyage ont des Ids</li>
+<li>La disponibilité est recalculée à chaque recherche.</li>
+
+</ul>
+
+</div>
+
+<hr>
+
+<div class="sectionModèle_du_domaine">
+<h2>2. Modèle du Domaine </h2>
+
+
+
+
+<h3>2.1 Diagramme de classe conceptuel</h3>
+<p>
+Le diagramme conceptuel modélise les entités principales du domaine.
+</p>
+
+<img src="Domaine/img_domaine/diagramme_de_domaine.svg">
+
+
+
+
+
+<h3> 2.2 Diagrammes de Séquence Système</h3>
+
+
+<p>
+Les diagrammes système représentent les interactions entre l’acteur et le système sans détail interne.
+</p>
+
+<h3> Volet Administratif</h3>
+
+<h4>2.2.1 Création, modification et suppression  de lieux de transport (Aéroports, Ports, gares)</h4>
+
+<p>Pour la creation/modification/suppression d'un aéroport/port gares, apres le premier diagramme de sequence popur le vol nous nous sommes rendus 
+    compte que le processus de creation des ces trois(03) entités  , reposaient sur le meme principe . Par conséquent dans les deux autres sections 
+    (navales et ferovieres) ces parties  resteront vides pour eviter les repetirions </p>
+
+    <br>
+
+<img src="Domaine/img_domaine/SYS_create_LieuxTransport.svg" alt="Création d'aéroports"> 
+<img src="Domaine/img_domaine/SYS_modif_LieuxTransport.svg" alt="Modification d'aéroports">
+<img src="Domaine/img_domaine/SYS_delete_LieuxTransport.svg" alt="Suppression d'aéroports">
+
+
+<h4>2.2.2  Création, modification et suppression de compagnies (Aériennes, Navales, ferroviaire)
+</h4>
+<img src="Domaine/img_domaine/SYS_create_company.svg" alt="Création de compagnies aériennes">
+<img src="Domaine/img_domaine/SYS_modifier_company.svg" alt="Modification de compagnies aériennes">
+<img src="Domaine/img_domaine/SYS_delete_company.svg" alt="Suppression de compagnies aériennes">
+<p> Pour ce dernier aussi les 3 sont similaires d'ou le fait de </p>
+
+<h4>2.2.3 Création, modification et suppression de vols</h4>
+<img src="Domaine/img_domaine/SYS_create_flight.svg" alt="Création de vols">
+<img src="Domaine/img_domaine/SYS_modif_flight.svg" alt="Modification de vols">
+<img src="Domaine/img_domaine/SYS_delete_flight.svg" alt="Suppression de vols"> <!-- À compléter -->
+
+<h4> 2.2.4 Création de sections d'un avion</h4>
+
+<img src="Domaine/img_domaine/SYS_create_sectionAvion.svg" alt="Création de sections d'un avion">
+
+<h4>2.2.5 Assignation de prix</h4>
+<img src="Domaine/img_domaine/SYS_assigner_prix_avion.svg" alt="Assignation de prix">
+
+
+<h4> 2.2.6 Consultation d'un vol</h4>
+<img src="Domaine/img_domaine/SYS_consulter_vol.svg" alt="Consultation de vols">
+
+
+
+<h4>2.2.7  Création, modification et suppression d'itinéraire </h4>
+<img src="Domaine/img_domaine/SYS_create_itineraire.svg" alt="Création d'itinéraires">
+<img src="Domaine/img_domaine/SYS_modif_itineraire.svg" alt="Modification d'itinéraires">
+<img src="Domaine/img_domaine/SYS_delete_itineraire.svg" alt="Suppression d'itinéraires">
+
+<h4>2.2.8 Création de sections d'un paquebot</h4>
+<img src="Domaine/img_domaine/SYS_creation_sectionPaquebot.svg" alt="Création de sections d'un paquebot">
+
+
+<h4>2.2.9 Consultation d'un itinéraire</h4>
+<img src="Domaine/img_domaine/SYS_consultation_naval.svg" alt="Consultation d'itinéraires"> 
+
+<h4>2.2.10 Assignation de prix d'un itinéraire</h4>
+<img src="Domaine/img_domaine/SYS_assigner_prix_naval.svg" alt="Assignation de prix d'un itinéraire">
+
+<!-- Ferroviaire-->
+<h4> Création, modification et suppression de trajets </h4>
+<img src="Domaine/img_domaine/SYS_create_trajet_train.svg" alt="Création de trajets">
+<img src="Domaine/img_domaine/SYS_modif_trajet_train.svg" alt="Modification de trajets">
+<img src="Domaine/img_domaine/SYS_delete_trajet_train.svg" alt="Suppression de trajets">
+
+
+<h4> Création de sections de train</h4>
+<img src="Domaine/img_domaine/SYS_creation_section_train.svg" alt="Création de sections de train">
+
+
+
+
+
+</div>
+
+
+
+<hr>
+
+<h3> Volet client</h3>
+
+<h3>Voyage  aérien et ferroviaire</h3>
+
+<h4>2.2.1 Verifiation de vols et trajets disponibles </h4>
+<img src="Domaine/img_domaine/SYS_verfiier_vols_trajets.svg" alt="Vérification de vols disponibles">
+
+
+<h4>2.2.2 réservaion siege</h4>
+<img src="Domaine/img_domaine/SYS_Reservation SiegeTrain_SiegeAvion_cabine.svg" alt="Réservation de sièges">
+
+<h4>2.2.3 Paiement Siège</h4>
+<img src="Domaine/img_domaine/SYS_Paiement SiegeTrain_SiegeAvion_Cabine.svg" alt="Paiement de sièges">
+
+
+
+
+
+
+<h3>Voyage  naval</h3>
+
+<h4>2.2.1 Verifiation des cabines disponibles </h4>
+<img src="Domaine/img_domaine/SYS_verifier_cabines dispo.svg" alt="Vérification de cabines disponibles">
+
+
+<h4>2.2.4 réservation cabine </h4>
+<p> Meme logique que la réservation de d'un siege pour le train/avion</p>
+
+<h4>2.2.5 Paiement d'une cabine </h4>
+<p> Meme logique que le paiement d'un siege pour le train/avion</p>
+
+
+
+
+
+
+<div class="section">
+<h2>3. Design Logiciel </h2>
+
+<h3>3.1 Diagramme de classe logiciel</h3>
+<img src="Design/img_design/Diagramme de classe.svg" alt="Diagramme de classe logiciel">
+
+<p>
+Le design logiciel applique les principes GRASP :
+</p>
+<ul>
+<li><strong>Expert :</strong> Les sections calculent la disponibilité.</li>
+<li><strong>Creator :</strong> Le contrôleur crée les réservations.</li>
+<li><strong>Faible couplage :</strong> Le système délègue aux contrôleurs.</li>
+<li><strong>Haute cohésion :</strong> Chaque classe a une responsabilité claire.</li>
+</ul>
+
+<h3>3.2 Diagrammes de Séquence Logiciels</h3>
+
+<h4>3.2.1 Vérifier vols/trajets</h4>
+<img src="Design/img_design/DS_Vérifier VolTrain.svg" alt="Diagramme de séquence pour vérifier les vols et trajets disponibles">
+
+<h4>3.2.2 Vérifier itinéraires</h4>
+<img src="Design/img_design/DS_vérifierItinéraire.svg" alt="Diagramme de séquence pour vérifier les itinéraires disponibles">
+
+<h4>3.2.3 Réserver un siège</h4>
+<img src="Design/img_design/DS_reserver_siege.svg" alt="Diagramme de séquence pour réserver un siège">
+
+<h4>3.2.4 Payer un siège</h4>
+<img src="Design/img_design/DS_payer_siege.svg" alt="Diagramme de séquence pour payer un siège">
+
+</div>
+
+<hr>
+
+<div class="sectionOCL">
+<h2>4. Contraintes OCL </h2>
+<iframe src="contraintes_ocl.pdf" style="width:100%; height:400px; border:none;"></iframe>
+
+</div>
+
+<hr>
+
+<div class="sectionJustifications">
+<h2>5. Justifications </h2>
+
+<p>
+Nous avons choisi d’utiliser un contrôleur distinct pour les réservations afin d’appliquer le principe Creator.
+Les entités SectionAvionTrain et SectionPaquebot calculent leur disponibilité conformément au principe Expert.
+Le système agit comme boundary pour limiter le couplage avec l’acteur.
+</p>
+
+</div>
+
+<hr>
+
+<div class="sectionDistribution_des_tâches">
+<h2>6. Distribution des tâches</h2>
+
+<table>
+<tr>
+<th>Tâche</th>
+<th>Reine</th>
+<th>Fahîma</th>
+<th>Abdel</th>
+<th>Olivier </th>
+</tr>
+
+<tr>
+<td>Diagramme classe conceptuel</td>
+<td>25%</td>
+<td>25%</td>
+<td>25%</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Diagrammes de sequence Systeme</td>
+<td>30%</td>
+<td>30%</td>
+<td>20%</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Design logiciel</td>
+<td>25%</td>
+<td>25%</td>
+<td>25%</td>
+<td>25%</td>
+</tr>
+
+<tr>
+<td>Contraintes OCL</td>
+<td>20%</td>
+<td>30%</td>
+<td>30%</td>
+<td>20%</td>
+</tr>
+
+<tr>
+<td>Diagramme de Paquets</td>
+<td>20%</td>
+<td>30%</td>
+<td>30%</td>
+<td>20%</td>
+</tr>
+
+
+<tr>
+<td> Rapport </td>
+<td>30%</td>
+<td>20%</td>
+<td>30%</td>
+<td>20%</td>
+</tr>
+</table>
+
+<p>
+Les contributions sont approximativement équilibrées.
+</p>
+
+</div>
+
+<hr>
+
+<div class="sectionFichiers_remis">
+<h2>7. Fichiers remis</h2>
+
+<ul>
+<li>Domaine/domaine.vpp</li>
+<li>Design/design.vpp</li>
+<li>Diagrammes JPG inclus dans les dossiers respectifs</li>
+</ul>
+
+</div>
+
+</body>
+</html>
